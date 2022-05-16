@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui"
+    />
+    <meta name="description" content="temporary email service" />
+
+    <!-- TODO favicon -->
+
+    <!-- fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i%7CMuli:300,400,500,700"
+      rel="stylesheet"
+    />
+
+    <!-- icon -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <!-- BEGIN VENDOR CSS -->
+    <link rel="stylesheet" href="./assets/css/vendors.css" />
+    <!-- END VENDOR CSS -->
+
+    <!-- BEGIN GLOBAL CSS -->
+    <link rel="stylesheet" href="./assets/css/app.css" />
+    <!-- END GLOBAL CSS -->
+
+    <!-- BEGIN PAGE SPECIFIC CSS -->
+    <link
+      rel="stylesheet"
+      href="./assets/css/core/menu/menu-types/vertical-menu.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="./assets/css/core/colors/palette-gradient.css"
+    />
+    <!-- END PAGE SPECIFIC CSS -->
+
+    <link rel="stylesheet" href="./assets/css/plugins/animate/animate.css">
+
+    <!-- BEGIN CUSTOM CSS [OPTIONAL] -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <!-- END CUSTOM CSS -->
+
+    <title>Email-Temp</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.2.2/sweetalert2.min.css"
+      integrity="sha512-OkYLbkJ4DB7ewvcpNLF9DSFmhdmxFXQ1Cs+XyjMsMMC94LynFJaA9cPXOokugkmZo6O6lwZg+V5dwQMH4S5/3g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body
+    class="vertical-layout vertical-menu 2-columns menu-expanded fixed-navbar"
+    data-open="click"
+    data-menu="vertical-menu"
+    data-col="2-columns"
+  >
+    <!-- fixed-top-->
+    <nav
+      class="header-navbar navbar-expand-md navbar navbar-with-menu fixed-top navbar-dark bg-gradient-x-grey-blue navbar-shadow"
+    >
+      <div class="navbar-wrapper">
+        <div class="navbar-header">
+          <ul class="nav navbar-nav flex-row">
+            <li class="nav-item mobile-menu d-md-none mr-auto">
+              <a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"
+                ><i class="ft-menu font-large-1"></i
+              ></a>
+            </li>
+            <li class="nav-item">
+              <a class="navbar-brand" href="#"
+                ><img
+                  class="brand-logo"
+                  alt="logo"
+                  src="./assets/images/logo.png"
+                />
+
+                <h3 class="brand-text">Temporary Mail</h3>
+              </a>
+            </li>
+            <li class="nav-item d-md-none">
+              <a
+                class="nav-link open-navbar-container"
+                data-toggle="collapse"
+                data-target="#navbar-mobile"
+              >
+                <span class="material-icons"> more_vert </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="navbar-container content">
+          <div class="collapse navbar-collapse" id="navbar-mobile">
+            <ul class="nav navbar-nav mr-auto float-left">
+              <li class="nav-item d-none d-md-block">
+                <a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"
+                  ><i class="ft-menu"> </i
+                ></a>
+              </li>
+              <li
+                class="dropdown nav-item mega-dropdown"
+                style="display: flex; align-items: center; color: #fff"
+              >
+                <a class="nav-link email-address" style="display: flex">
+                  <span
+                    style="margin-right: 6px; font-size: 18px"
+                    class="material-icons"
+                  >
+                    mail
+                  </span>
+                  <span class="genarated-address">
+                    nzwqmsz@frederictonlawyer.com
+                  </span>
+                </a>
+
+                <a href="#" class="copy_icon" onclick="copyText()">
+                  <span class="material-icons"> copy_all </span>
+                </a>
+              </li>
+            </ul>
+
+            <ul class="nav navbar-nav float-right">
+              <li class="dropdown dropdown-language nav-item">
+                <a
+                  class="dropdown-toggle nav-link"
+                  id="dropdown-flag"
+                  href="#"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  ><i class="flag-icon flag-icon-gb"></i><span>English</span
+                  ><span class="selected-language"></span
+                ></a>
+                <div class="dropdown-menu" aria-labelledby="dropdown-flag">
+                  <a class="dropdown-item" href="#"
+                    ><i class="flag-icon flag-icon-gb"></i> English</a
+                  ><a class="dropdown-item" href="#"
+                    ><i class="flag-icon flag-icon-fr"></i> French</a
+                  ><a class="dropdown-item" href="#"
+                    ><i class="flag-icon flag-icon-cn"></i> Chinese</a
+                  ><a class="dropdown-item" href="#"
+                    ><i class="flag-icon flag-icon-de"></i> German</a
+                  >
+                </div>
+              </li>
+
+              <li class="dropdown dropdown-user nav-item">
+                <a
+                  class="dropdown-toggle fix-toggle-mobile nav-link dropdown-user-link"
+                  href="#"
+                  data-toggle="dropdown"
+                  ><span class="avatar avatar-online"
+                    ><img
+                      src="./assets/images/avatar/small-avatar.png"
+                      alt="avatar" /><i></i></span
+                  ><span class="user-name">John Doe</span></a
+                >
+                <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="#"
+                    ><i class="ft-user"></i> Edit Profile</a
+                  ><a class="dropdown-item" href="#"
+                    ><i class="ft-mail"></i> My Inbox</a
+                  ><a class="dropdown-item" href="#"
+                    ><i class="ft-check-square"></i> Task</a
+                  ><a class="dropdown-item" href="#"
+                    ><i class="ft-message-square"></i> Chats</a
+                  >
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#"
+                    ><i class="ft-power"></i> Logout</a
+                  >
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+
+    <div
+      class="main-menu menu-fixed menu-dark menu-accordion menu-shadow bg-gradient-x-grey-blue"
+      data-scroll-to-active="true"
+    >
+      <div class="main-menu-content">
+        <ul
+          class="navigation navigation-main"
+          id="main-menu-navigation"
+          data-menu="menu-navigation"
+        >
+          <li class="nav-item">
+            <a href="index.html"
+              ><i class="icon-home"></i
+              ><span class="menu-title" data-i18n="nav.dash.main"
+                >Dashboard</span
+              ></a
+            >
+            <ul class="menu-content">
+              <li class="active">
+                <a
+                  class="menu-item"
+                  href="dashboard-ecommerce.html"
+                  data-i18n="nav.dash.ecommerce"
+                  style="display: flex; align-items: center"
+                >
+                  <span
+                    style="margin-right: 10px; font-size: 16px"
+                    class="material-icons"
+                  >
+                    inbox
+                  </span>
+                  Inbox</a
+                >
+              </li>
+              <li class="active">
+                <a
+                  class="menu-item"
+                  href="dashboard-ecommerce.html"
+                  data-i18n="nav.dash.ecommerce"
+                >
+                  <i style="" class="icon-refresh spinner"></i>
+                  Refresh</a
+                >
+              </li>
+            </ul>
+          </li>
+
+          <li class="navigation-header">
+            <span data-i18n="nav.category.layouts">Content</span
+            ><i
+              class="ft-more-horizontal ft-minus"
+              data-toggle="tooltip"
+              data-placement="right"
+              data-original-title="Layouts"
+            ></i>
+          </li>
+
+          <li class="nav-item">
+            <a href="#"
+              ><i class="icon-layers"></i
+              ><span class="menu-title" data-i18n="nav.page_layouts.main"
+                >User Manual</span
+              ></a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="#"
+              ><i class="icon-question"></i
+              ><span class="menu-title" data-i18n="nav.page_layouts.main"
+                >FAQ</span
+              ></a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="#"
+              ><i class="icon-lock-open"></i
+              ><span class="menu-title" data-i18n="nav.page_layouts.main"
+                >Privacy</span
+              ></a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="./status.html"
+              ><i class="icon-feed"></i
+              ><span class="menu-title" data-i18n="nav.page_layouts.main"
+                >Status</span
+              ></a
+            >
+          </li>
+          <li class="nav-item active">
+            <a href="#"
+              ><i class="icon-map"></i
+              ><span class="menu-title" data-i18n="nav.page_layouts.main"
+                >Contact</span
+              ></a
+            >
+          </li>
+
+          <li class="navigation-header">
+            <span data-i18n="nav.category.support">Support</span
+            ><i
+              class="ft-more-horizontal ft-minus"
+              data-toggle="tooltip"
+              data-placement="right"
+              data-original-title="Support"
+            ></i>
+          </li>
+          <li class="nav-item">
+            <a
+              ><i class="icon-support"></i
+              ><span
+                class="menu-title"
+                data-i18n="nav.support_raise_support.main"
+                >Raise Support</span
+              ></a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="#"
+              ><i class="icon-notebook"></i
+              ><span
+                class="menu-title"
+                data-i18n="nav.support_documentation.main"
+                >Documentation</span
+              ></a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="app-content content" style="">
+      <div class="content-wrapper">
+        <!-- we will use this div if and only if email is empty -->
+        <section class="easy_setup_area sec_pad">
+          <div class="container">
+        <!--===========================-->
+        <!--=         Contact         =-->
+        <!--===========================-->
+        
+        <section class="">
+            <div style="">
+                <div style="text-align: center;">
+                    
+                    <h3 style="font-size: 25px">Blog</h3>
+                    <p style="font-size: 16px;">Read more about the latest changes and updates that have been applied to the site. <br> If you have any questions, then you may always
+                    <a href="">Contact us</a>
+            </div>
+            </p>
+            </div>
+            <!-- /.container -->
+
+            <section class="blog_area sec_pad">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="blog_list_item mb_50">
+                                <img class="img-fluid" src="./assets/images/blog-grid/blog_list1.jpg" alt="">
+                                <div class="blog_content">
+                                    <div class="post_date">
+                                        <h2>14 <span>March</span></h2>
+                                    </div>
+                                    <div class="entry_post_info">
+                                        By: <a href="#">Admin</a>
+                                        <a href="#">2 Comments</a>
+                                        <a href="#">Temporary Mail</a>
+                                    </div>
+                                    <a href="#">
+                                        <h5 class="f_p f_size_20 f_500 t_color mb_20">Why I say old chap that is, spiffing jolly good.</h5>
+                                    </a>
+                                    <p class="f_400 mb_20">Cheeky bugger amongst bugger knees up get stuffed mate what a load of rubbish starkers dropped a clanger say boot, blow off cobblers butty mufty spiffing Eaton the full monty the BBC a, posh chap.</p>
+                                    <a href="#" class="learn_btn_two">Read More <i class="ti-arrow-right"></i></a>
+                                </div>
+                            </div>
+                            <div class="blog_list_item mb_50">
+                                <img class="img-fluid" src="./assets/images/blog-grid/blog_list2.jpg" alt="">
+                                <div class="blog_content">
+                                    <div class="post_date">
+                                        <h2>10 <span>April</span></h2>
+                                    </div>
+                                    <div class="entry_post_info">
+                                        By: <a href="#">Admin</a>
+                                        <a href="#">2 Comments</a>
+                                        <a href="#">Temporary Mail</a>
+                                    </div>
+                                    <a href="#">
+                                        <h5 class="f_p f_size_20 f_500 t_color mb_20">Why I say old chap that is, spiffing jolly good.</h5>
+                                    </a>
+                                    <p class="f_400 mb_20">Cheeky bugger amongst bugger knees up get stuffed mate what a load of rubbish starkers dropped a clanger say boot, blow off cobblers butty mufty spiffing Eaton the full monty the BBC a, posh chap.</p>
+                                    <a href="#" class="learn_btn_two">Read More <i class="ti-arrow-right"></i></a>
+                                </div>
+                            </div>
+                            <div class="blog_list_item mb_50">
+                                <img class="img-fluid" src="./assets/images/blog-grid/blog_list3.jpg" alt="">
+                                <div class="blog_content">
+                                    <div class="post_date">
+                                        <h2>14 <span>July</span></h2>
+                                    </div>
+                                    <div class="entry_post_info">
+                                        By: <a href="#">Admin</a>
+                                        <a href="#">2 Comments</a>
+                                        <a href="#">Temporary Mail</a>
+                                    </div>
+                                    <a href="#">
+                                        <h5 class="f_p f_size_20 f_500 t_color mb_20">Why I say old chap that is, spiffing jolly good.</h5>
+                                    </a>
+                                    <p class="f_400 mb_20">Cheeky bugger amongst bugger knees up get stuffed mate what a load of rubbish starkers dropped a clanger say boot, blow off cobblers butty mufty spiffing Eaton the full monty the BBC a, posh chap.</p>
+                                    <a href="#" class="learn_btn_two">Read More <i class="ti-arrow-right"></i></a>
+                                </div>
+                            </div>
+                            <div class="blog_list_item mb_50">
+                                <img class="img-fluid" src="./assets/images/blog-grid/blog_list4.jpg" alt="">
+                                <div class="blog_content">
+                                    <div class="post_date">
+                                        <h2>10 <span>August</span></h2>
+                                    </div>
+                                    <div class="entry_post_info">
+                                        By: <a href="#">Admin</a>
+                                        <a href="#">2 Comments</a>
+                                        <a href="#">Temporary Mail</a>
+                                    </div>
+                                    <a href="#">
+                                        <h5 class="f_p f_size_20 f_500 t_color mb_20">Bloke cracking goal the full monty get stuffed mate posh.</h5>
+                                    </a>
+                                    <p class="f_400 mb_20">Cheeky bugger amongst bugger knees up get stuffed mate what a load of rubbish starkers dropped a clanger say boot, blow off cobblers butty mufty spiffing Eaton the full monty the BBC a, posh chap.</p>
+                                    <a href="#" class="learn_btn_two">Read More <i class="ti-arrow-right"></i></a>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="blog-sidebar">
+                               
+                                <div class="widget sidebar_widget widget_recent_post mt_60">
+                                    <div class="widget_title">
+                                        <h3 class="f_p f_size_20 t_color3">Recent posts</h3>
+                                        <div class="border_bottom"></div>
+                                    </div>
+                                    <div class="media post_item">
+                                        <img src="./assets/images/blog-grid/post_1.jpg" alt="">
+                                        <div class="media-body">
+                                            <a href="#">
+                                                <h3 class="f_size_16 f_p f_400">Proin gravi nibh velit auctor aliquet aenean.</h3>
+                                            </a>
+                                            <div class="entry_post_info">
+                                                By: <a href="#">Admin</a>
+                                                <a href="#">March 14, 2018</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="media post_item">
+                                        <img src="./assets/images/blog-grid/post_2.jpg" alt="">
+                                        <div class="media-body">
+                                            <a href="#">
+                                                <h3 class="f_size_16 f_p f_400">Proin gravi nibh velit auctor aliquet aenean.</h3>
+                                            </a>
+                                            <div class="entry_post_info">
+                                                By: <a href="#">Admin</a>
+                                                <a href="#">March 14, 2018</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="media post_item">
+                                        <img src="./assets/images/blog-grid/post_3.jpg" alt="">
+                                        <div class="media-body">
+                                            <a href="#">
+                                                <h3 class="f_size_16 f_p f_400">Proin gravi nibh velit auctor aliquet aenean.</h3>
+                                            </a>
+                                            <div class="entry_post_info">
+                                                By: <a href="#">Admin</a>
+                                                <a href="#">March 14, 2018</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="media post_item">
+                                        <img src="./assets/images/blog-grid/post_4.jpg" alt="">
+                                        <div class="media-body">
+                                            <a href="#">
+                                                <h3 class="f_size_16 f_p f_400">Proin gravi nibh velit auctor aliquet aenean.</h3>
+                                            </a>
+                                            <div class="entry_post_info">
+                                                By: <a href="#">Admin</a>
+                                                <a href="#">March 14, 2018</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                            </div>
+                        </div>
+    
+                    </div>
+                </div>
+            </section>
+        </section>
+        <!-- /.contactus -->
+
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <footer class="footer footer-static footer-dark navbar-border wow fadeIn" data-wow-delay="0.2s">
+      <p class="clearfix lighten-2 text-sm-center mb-0 px-2">
+        <span class="float-md-left d-block d-md-inline-block"
+        style=""
+          >Copyright &copy; 2022
+          <a
+            class="text-bold-800"
+            href="#"
+            target="_blank"
+            >Temporarymail.com</a
+          >, All rights reserved. </span
+        >
+        <span class="float-md-right d-block d-md-inline-blockd-none d-lg-block"
+          >
+          <img style="width:72px; height:62px" src="./assets/images/logo.png" alt="">
+          <br/>
+            <span>Privacy Policy</span> |
+            <span>Terms of Services</span>
+          
+    
+      </span>
+      </p>
+    </footer>
+
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+
+    <!-- BEGIN VENDOR JS-->
+
+    <script src="./assets/vendors/js/vendors.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.2.2/sweetalert2.min.js"></script>
+
+    <script src="./assets/js/plugins/wow/wow.min.js"></script>
+
+
+    <!-- END PAGE VENDOR JS-->
+
+    <!-- BEGIN GLOBAL JS-->
+    <script src="./assets/js/core/app-menu.js"></script>
+    <script src="./assets/js/core/app.js"></script>
+    <!-- END GLOBAL JS-->
+  </body>
+</html>

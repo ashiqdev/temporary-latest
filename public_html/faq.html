@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui"
+    />
+    <meta name="description" content="temporary email service" />
+
+    <!-- TODO favicon -->
+
+    <!-- fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i%7CMuli:300,400,500,700"
+      rel="stylesheet"
+    />
+
+    <!-- icon -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    
+
+    <!-- BEGIN VENDOR CSS -->
+    <link rel="stylesheet" href="./assets/css/vendors.css" />
+    <!-- END VENDOR CSS -->
+
+    <!-- BEGIN GLOBAL CSS -->
+    <link rel="stylesheet" href="./assets/css/app.css" />
+    <!-- END GLOBAL CSS -->
+
+    <!-- BEGIN PAGE SPECIFIC CSS -->
+    <link
+      rel="stylesheet"
+      href="./assets/css/core/menu/menu-types/vertical-menu.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="./assets/css/core/colors/palette-gradient.css"
+    />
+    <!-- END PAGE SPECIFIC CSS -->
+
+    <link rel="stylesheet" href="./assets/css/plugins/animate/animate.css">
+
+    <!-- BEGIN CUSTOM CSS [OPTIONAL] -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <!-- END CUSTOM CSS -->
+
+    <title>Email-Temp</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.2.2/sweetalert2.min.css"
+      integrity="sha512-OkYLbkJ4DB7ewvcpNLF9DSFmhdmxFXQ1Cs+XyjMsMMC94LynFJaA9cPXOokugkmZo6O6lwZg+V5dwQMH4S5/3g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body
+    class="vertical-layout vertical-menu 2-columns menu-expanded fixed-navbar"
+    data-open="click"
+    data-menu="vertical-menu"
+    data-col="2-columns"
+  >
+    <!-- fixed-top-->
+    <nav
+      class="header-navbar navbar-expand-md navbar navbar-with-menu fixed-top navbar-dark bg-gradient-x-grey-blue navbar-shadow"
+    >
+      <div class="navbar-wrapper">
+        <div class="navbar-header">
+          <ul class="nav navbar-nav flex-row">
+            <li class="nav-item mobile-menu d-md-none mr-auto">
+              <a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"
+                ><i class="ft-menu font-large-1"></i
+              ></a>
+            </li>
+            <li class="nav-item">
+              <a class="navbar-brand" href="#"
+                ><img
+                  class="brand-logo"
+                  alt="logo"
+                  src="./assets/images/logo.png"
+                />
+
+                <h3 class="brand-text">Temporary Mail</h3>
+              </a>
+            </li>
+            <li class="nav-item d-md-none">
+              <a
+                class="nav-link open-navbar-container"
+                data-toggle="collapse"
+                data-target="#navbar-mobile"
+              >
+                <span class="material-icons"> more_vert </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="navbar-container content">
+          <div class="collapse navbar-collapse" id="navbar-mobile">
+            <ul class="nav navbar-nav mr-auto float-left">
+              <li class="nav-item d-none d-md-block">
+                <a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"
+                  ><i class="ft-menu"> </i
+                ></a>
+              </li>
+              <li
+                class="dropdown nav-item mega-dropdown"
+                style="display: flex; align-items: center; color: #fff"
+              >
+                <a class="nav-link email-address" style="display: flex">
+                  <span
+                    style="margin-right: 6px; font-size: 18px"
+                    class="material-icons"
+                  >
+                    mail
+                  </span>
+                  <span class="genarated-address">
+                    nzwqmsz@frederictonlawyer.com
+                  </span>
+                </a>
+
+                <a href="#" class="copy_icon" onclick="copyText()">
+                  <span class="material-icons"> copy_all </span>
+                </a>
+              </li>
+            </ul>
+
+            <ul class="nav navbar-nav float-right">
+              <li class="dropdown dropdown-language nav-item">
+                <a
+                  class="dropdown-toggle nav-link"
+                  id="dropdown-flag"
+                  href="#"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  ><i class="flag-icon flag-icon-gb"></i><span>English</span
+                  ><span class="selected-language"></span
+                ></a>
+                <div class="dropdown-menu" aria-labelledby="dropdown-flag">
+                  <a class="dropdown-item" href="#"
+                    ><i class="flag-icon flag-icon-gb"></i> English</a
+                  ><a class="dropdown-item" href="#"
+                    ><i class="flag-icon flag-icon-fr"></i> French</a
+                  ><a class="dropdown-item" href="#"
+                    ><i class="flag-icon flag-icon-cn"></i> Chinese</a
+                  ><a class="dropdown-item" href="#"
+                    ><i class="flag-icon flag-icon-de"></i> German</a
+                  >
+                </div>
+              </li>
+
+              <li class="dropdown dropdown-user nav-item">
+                <a
+                  class="dropdown-toggle fix-toggle-mobile nav-link dropdown-user-link"
+                  href="#"
+                  data-toggle="dropdown"
+                  ><span class="avatar avatar-online"
+                    ><img
+                      src="./assets/images/avatar/small-avatar.png"
+                      alt="avatar" /><i></i></span
+                  ><span class="user-name">John Doe</span></a
+                >
+                <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="#"
+                    ><i class="ft-user"></i> Edit Profile</a
+                  ><a class="dropdown-item" href="#"
+                    ><i class="ft-mail"></i> My Inbox</a
+                  ><a class="dropdown-item" href="#"
+                    ><i class="ft-check-square"></i> Task</a
+                  ><a class="dropdown-item" href="#"
+                    ><i class="ft-message-square"></i> Chats</a
+                  >
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#"
+                    ><i class="ft-power"></i> Logout</a
+                  >
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+
+    <div
+      class="main-menu menu-fixed menu-dark menu-accordion menu-shadow bg-gradient-x-grey-blue"
+      data-scroll-to-active="true"
+    >
+      <div class="main-menu-content">
+        <ul
+          class="navigation navigation-main"
+          id="main-menu-navigation"
+          data-menu="menu-navigation"
+        >
+          <li class="nav-item">
+            <a href="index.html"
+              ><i class="icon-home"></i
+              ><span class="menu-title" data-i18n="nav.dash.main"
+                >Dashboard</span
+              ></a
+            >
+            <ul class="menu-content">
+              <li class="active">
+                <a
+                  class="menu-item"
+                  href="dashboard-ecommerce.html"
+                  data-i18n="nav.dash.ecommerce"
+                  style="display: flex; align-items: center"
+                >
+                  <span
+                    style="margin-right: 10px; font-size: 16px"
+                    class="material-icons"
+                  >
+                    inbox
+                  </span>
+                  Inbox</a
+                >
+              </li>
+              <li class="active">
+                <a
+                  class="menu-item"
+                  href="dashboard-ecommerce.html"
+                  data-i18n="nav.dash.ecommerce"
+                >
+                  <i style="" class="icon-refresh spinner"></i>
+                  Refresh</a
+                >
+              </li>
+            </ul>
+          </li>
+
+          <li class="navigation-header">
+            <span data-i18n="nav.category.layouts">Content</span
+            ><i
+              class="ft-more-horizontal ft-minus"
+              data-toggle="tooltip"
+              data-placement="right"
+              data-original-title="Layouts"
+            ></i>
+          </li>
+
+          <li class="nav-item active">
+            <a href="#"
+              ><i class="icon-layers"></i
+              ><span class="menu-title" data-i18n="nav.page_layouts.main"
+                >User Manual</span
+              ></a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="#"
+              ><i class="icon-question"></i
+              ><span class="menu-title" data-i18n="nav.page_layouts.main"
+                >FAQ</span
+              ></a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="#"
+              ><i class="icon-lock-open"></i
+              ><span class="menu-title" data-i18n="nav.page_layouts.main"
+                >Privacy</span
+              ></a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="#"
+              ><i class="icon-feed"></i
+              ><span class="menu-title" data-i18n="nav.page_layouts.main"
+                >Feedback</span
+              ></a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="#"
+              ><i class="icon-map"></i
+              ><span class="menu-title" data-i18n="nav.page_layouts.main"
+                >Contact</span
+              ></a
+            >
+          </li>
+
+          <li class="navigation-header">
+            <span data-i18n="nav.category.support">Support</span
+            ><i
+              class="ft-more-horizontal ft-minus"
+              data-toggle="tooltip"
+              data-placement="right"
+              data-original-title="Support"
+            ></i>
+          </li>
+          <li class="nav-item">
+            <a href="http://support.pixinvent.com/"
+              ><i class="icon-support"></i
+              ><span
+                class="menu-title"
+                data-i18n="nav.support_raise_support.main"
+                >Raise Support</span
+              >
+              
+              
+              
+              </a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="#"
+              ><i class="icon-notebook"></i
+              ><span
+                class="menu-title"
+                data-i18n="nav.support_documentation.main"
+                >Documentation</span
+                
+
+              ></a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="app-content content wow fadeInDown" data-wow-delay="0.2s" style="">
+      <div class="content-wrapper" style="text-align: center">
+        <!-- we will use this div if and only if email is empty -->
+        <section class="easy_setup_area sec_pad" style="padding-bottom: 2.2rem;">
+          <div class="container font-f">
+            <div
+              class="hosting_title analytices_title text-center"
+              style="padding-top: 5rem"
+            >
+            <h2>
+              <span class="ana-title">Frequently Asked Question</span> 
+            </h2>
+
+            <p class="">
+              If you have other questions then feel free to use the <a href="#">contact page</a>
+            </p>
+            
+            </div>
+           
+            <!-- faq area -->
+            
+           <div>
+            <section class="faqs">
+              <div class="container">
+                  <div class="tabs-wrapper">
+                     
+                      <div class="tab-content">
+                          <div class="tab-pane fade show active" id="design" role="tabpanel" aria-labelledby="design-tab">
+                              <div id="accordionsing" class="faq faq-two pixFade">
+                                  <div class="card">
+                                      <div class="card-header" id="heading10">
+                                          <h5>
+                                              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse00" aria-expanded="false" aria-controls="collapse00">
+                                                How long are emails kept?
+                                                 
+                                              </button>
+                                          </h5>
+                                      </div>
+                                      <div id="collapse00" class="collapse" aria-labelledby="heading10" data-parent="#accordionsing">
+                                          <div class="card-body">
+                                              <p>
+                                                Each email is saved for 6 hours and once expired it will be permanently deleted.
+
+                                          
+                                              </p>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="card active">
+                                      <div class="card-header" id="heading20">
+                                          <h5>
+                                              <button class="btn btn-link" data-toggle="collapse" data-target="#collapse10" aria-expanded="true" aria-controls="collapse10">
+                                                How do I change the email address?
+                                              </button>
+                                          </h5>
+                                      </div>
+                                      <div id="collapse10" class="collapse show" aria-labelledby="heading20" data-parent="#accordionsing">
+                                          <div class="card-body">
+                                              <p>
+                                                You can change the randomly assigned address, by pressing the <a href="">Change Address</a> button found above.
+                                              </p>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="card">
+                                      <div class="card-header" id="heading30">
+                                          <h5>
+                                              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse20" aria-expanded="false" aria-controls="collapse20">
+                                                Where do I see if I've received an email?
+                                              </button>
+                                          </h5>
+                                      </div>
+                                      <div id="collapse20" class="collapse" aria-labelledby="heading30" data-parent="#accordionsing">
+                                          <div class="card-body">
+                                              <p>
+                                                 You will see it once you click the inbox button from the dashboard.
+                                              </p>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="card">
+                                      <div class="card-header" id="heading40">
+                                          <h5>
+                                              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse30" aria-expanded="false" aria-controls="collapse30">
+                                                Can you recover deleted emails?
+                                              </button>
+                                          </h5>
+                                      </div>
+                                      <div id="collapse30" class="collapse" aria-labelledby="heading40" data-parent="#accordionsing">
+                                          <div class="card-body">
+                                              <p>
+                                                Unfortunately, when the email expires it is permanently deleted without an option to recover.
+                                              </p>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="card">
+                                      <div class="card-header" id="heading42">
+                                          <h5>
+                                              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse32" aria-expanded="false" aria-controls="collapse32">
+                                                  How can I track my orders?
+                                              </button>
+                                          </h5>
+                                      </div>
+                                      <div id="collapse32" class="collapse" aria-labelledby="heading42" data-parent="#accordionsing">
+                                          <div class="card-body">
+                                              <p>
+                                                  Easy peasy owt to do with me cras I don't want no agro what a load of rubbish starkers absolutely bladdered, old tinkety tonk old fruit so I said the full monty.
+                                              </p>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  
+                              </div>
+                          </div>
+                          <div class="tab-pane fade" id="service" role="tabpanel" aria-labelledby="service-tab">
+                              <div id="accordionsing-2" class="faq faq-two pixFade">
+                                  <div class="card active">
+                                      <div class="card-header" id="heading101">
+                                          <h5>
+                                              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse001" aria-expanded="false" aria-controls="collapse001">
+                                                  How to contact with Customer Service?
+                                              </button>
+                                          </h5>
+                                      </div>
+                                      <div id="collapse001" class="collapse show" aria-labelledby="heading101" data-parent="#accordionsing-2">
+                                          <div class="card-body">
+                                              <p>
+                                                  Easy peasy owt to do with me cras I don't want no agro what a load of rubbish starkers absolutely bladdered, old tinkety tonk old fruit so I said the full monty.
+                                              </p>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="card">
+                                      <div class="card-header" id="heading201">
+                                          <h5>
+                                              <button class="btn btn-link" data-toggle="collapse" data-target="#collapse101" aria-expanded="true" aria-controls="collapse101">
+                                                  How delete my account?
+                                              </button>
+                                          </h5>
+                                      </div>
+                                      <div id="collapse101" class="collapse" aria-labelledby="heading201" data-parent="#accordionsing-2">
+                                          <div class="card-body">
+                                              <p>
+                                                  Easy peasy owt to do with me cras I don't want no agro what a load of rubbish starkers absolutely bladdered, old tinkety tonk old fruit so I said the full monty.
+                                              </p>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="card">
+                                      <div class="card-header" id="heading301">
+                                          <h5>
+                                              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse201" aria-expanded="false" aria-controls="collapse201">
+                                                  Where is the edit optioon on dashboard?
+                                              </button>
+                                          </h5>
+                                      </div>
+                                      <div id="collapse201" class="collapse" aria-labelledby="heading301" data-parent="#accordionsing-2">
+                                          <div class="card-body">
+                                              <p>
+                                                  Easy peasy owt to do with me cras I don't want no agro what a load of rubbish starkers absolutely bladdered, old tinkety tonk old fruit so I said the full monty.
+                                              </p>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="card">
+                                      <div class="card-header" id="heading411">
+                                          <h5>
+                                              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse311" aria-expanded="false" aria-controls="collapse311">
+                                                  Is there any custome pricing system?
+                                              </button>
+                                          </h5>
+                                      </div>
+                                      <div id="collapse311" class="collapse" aria-labelledby="heading411" data-parent="#accordionsing-2">
+                                          <div class="card-body">
+                                              <p>
+                                                  Easy peasy owt to do with me cras I don't want no agro what a load of rubbish starkers absolutely bladdered, old tinkety tonk old fruit so I said the full monty.
+                                              </p>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="tab-pane fade" id="general" role="tabpanel" aria-labelledby="general-tab">
+                              <div id="accordionsing-3" class="faq faq-two pixFade">
+                                  <div class="card active">
+                                      <div class="card-header" id="heading102">
+                                          <h5>
+                                              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse002" aria-expanded="false" aria-controls="collapse002">
+                                                  How to contact with Customer Service?
+                                              </button>
+                                          </h5>
+                                      </div>
+                                      <div id="collapse002" class="collapse show" aria-labelledby="heading102" data-parent="#accordionsing-3">
+                                          <div class="card-body">
+                                              <p>
+                                                  Easy peasy owt to do with me cras I don't want no agro what a load of rubbish starkers absolutely bladdered, old tinkety tonk old fruit so I said the full monty.
+                                              </p>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="card">
+                                      <div class="card-header" id="heading202">
+                                          <h5>
+                                              <button class="btn btn-link" data-toggle="collapse" data-target="#collapse102" aria-expanded="true" aria-controls="collapse102">
+                                                  How delete my account?
+                                              </button>
+                                          </h5>
+                                      </div>
+                                      <div id="collapse102" class="collapse" aria-labelledby="heading202" data-parent="#accordionsing-3">
+                                          <div class="card-body">
+                                              <p>
+                                                  Easy peasy owt to do with me cras I don't want no agro what a load of rubbish starkers absolutely bladdered, old tinkety tonk old fruit so I said the full monty.
+                                              </p>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="card">
+                                      <div class="card-header" id="heading302">
+                                          <h5>
+                                              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse202" aria-expanded="false" aria-controls="collapse202">
+                                                  Where is the edit optioon on dashboard?
+                                              </button>
+                                          </h5>
+                                      </div>
+                                      <div id="collapse202" class="collapse" aria-labelledby="heading302" data-parent="#accordionsing-3">
+                                          <div class="card-body">
+                                              <p>
+                                                  Easy peasy owt to do with me cras I don't want no agro what a load of rubbish starkers absolutely bladdered, old tinkety tonk old fruit so I said the full monty.
+                                              </p>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="card">
+                                      <div class="card-header" id="heading402">
+                                          <h5>
+                                              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse302" aria-expanded="false" aria-controls="collapse302">
+                                                  Is there any custome pricing system?
+                                              </button>
+                                          </h5>
+                                      </div>
+                                      <div id="collapse302" class="collapse" aria-labelledby="heading402" data-parent="#accordionsing-3">
+                                          <div class="card-body">
+                                              <p>
+                                                  Easy peasy owt to do with me cras I don't want no agro what a load of rubbish starkers absolutely bladdered, old tinkety tonk old fruit so I said the full monty.
+                                              </p>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="tab-pane fade" id="branding" role="tabpanel" aria-labelledby="branding-tab">
+                              <div id="accordionsing-4" class="faq faq-two pixFade">
+                                  <div class="card active">
+                                      <div class="card-header" id="heading103">
+                                          <h5>
+                                              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse003" aria-expanded="false" aria-controls="collapse003">
+                                                  How to contact with Customer Service?
+                                              </button>
+                                          </h5>
+                                      </div>
+                                      <div id="collapse003" class="collapse show" aria-labelledby="heading103" data-parent="#accordionsing-4">
+                                          <div class="card-body">
+                                              <p>
+                                                  Easy peasy owt to do with me cras I don't want no agro what a load of rubbish starkers absolutely bladdered, old tinkety tonk old fruit so I said the full monty.
+                                              </p>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="card">
+                                      <div class="card-header" id="heading203">
+                                          <h5>
+                                              <button class="btn btn-link" data-toggle="collapse" data-target="#collapse13" aria-expanded="true" aria-controls="collapse13">
+                                                  How delete my account?
+                                              </button>
+                                          </h5>
+                                      </div>
+                                      <div id="collapse13" class="collapse" aria-labelledby="heading203" data-parent="#accordionsing-4">
+                                          <div class="card-body">
+                                              <p>
+                                                  Easy peasy owt to do with me cras I don't want no agro what a load of rubbish starkers absolutely bladdered, old tinkety tonk old fruit so I said the full monty.
+                                              </p>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="card">
+                                      <div class="card-header" id="heading304">
+                                          <h5>
+                                              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse204" aria-expanded="false" aria-controls="collapse204">
+                                                  Where is the edit optioon on dashboard?
+                                              </button>
+                                          </h5>
+                                      </div>
+                                      <div id="collapse204" class="collapse" aria-labelledby="heading304" data-parent="#accordionsing-4">
+                                          <div class="card-body">
+                                              <p>
+                                                  Easy peasy owt to do with me cras I don't want no agro what a load of rubbish starkers absolutely bladdered, old tinkety tonk old fruit so I said the full monty.
+                                              </p>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="card">
+                                      <div class="card-header" id="heading404">
+                                          <h5>
+                                              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse304" aria-expanded="false" aria-controls="collapse304">
+                                                  Is there any custome pricing system?
+                                              </button>
+                                          </h5>
+                                      </div>
+                                      <div id="collapse304" class="collapse" aria-labelledby="heading404" data-parent="#accordionsing-4">
+                                          <div class="card-body">
+                                              <p>
+                                                  Easy peasy owt to do with me cras I don't want no agro what a load of rubbish starkers absolutely bladdered, old tinkety tonk old fruit so I said the full monty.
+                                              </p>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- /.tabs-wrapper -->
+                 
+  
+
+              </div>
+              <!-- /.container -->
+          </section>
+           </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+
+    <!-- BEGIN VENDOR JS-->
+
+    <script src="./assets/vendors/js/vendors.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.2.2/sweetalert2.min.js"></script>
+
+    <script src="./assets/js/plugins/wow/wow.min.js"></script>
+
+
+    <!-- END PAGE VENDOR JS-->
+
+    <!-- BEGIN GLOBAL JS-->
+    <script src="./assets/js/core/app-menu.js"></script>
+    <script src="./assets/js/core/app.js"></script>
+    <!-- END GLOBAL JS-->
+  </body>
+</html>

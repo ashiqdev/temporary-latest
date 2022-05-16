@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui"
+    />
+    <meta name="description" content="temporary email service" />
+
+    <!-- TODO favicon -->
+
+    <!-- fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i%7CMuli:300,400,500,700"
+      rel="stylesheet"
+    />
+
+    <!-- icon -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <!-- BEGIN VENDOR CSS -->
+    <link rel="stylesheet" href="./assets/css/vendors.css" />
+    <!-- END VENDOR CSS -->
+
+    <!-- BEGIN GLOBAL CSS -->
+    <link rel="stylesheet" href="./assets/css/app.css" />
+    <!-- END GLOBAL CSS -->
+
+    <!-- BEGIN PAGE SPECIFIC CSS -->
+    <link
+      rel="stylesheet"
+      href="./assets/css/core/menu/menu-types/vertical-menu.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="./assets/css/core/colors/palette-gradient.css"
+    />
+    <!-- END PAGE SPECIFIC CSS -->
+
+    <!-- BEGIN CUSTOM CSS [OPTIONAL] -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <!-- END CUSTOM CSS -->
+
+    <title>Email-Temp</title>
+
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.2.2/sweetalert2.min.css"
+    integrity="sha512-OkYLbkJ4DB7ewvcpNLF9DSFmhdmxFXQ1Cs+XyjMsMMC94LynFJaA9cPXOokugkmZo6O6lwZg+V5dwQMH4S5/3g=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  </head>
+
+  <body
+    class="vertical-layout vertical-menu 2-columns menu-expanded fixed-navbar"
+    data-open="click"
+    data-menu="vertical-menu"
+    data-col="2-columns"
+  >
+    <!-- fixed-top-->
+    <nav
+      class="header-navbar navbar-expand-md navbar navbar-with-menu fixed-top navbar-dark bg-gradient-x-grey-blue navbar-shadow"
+    >
+      <div class="navbar-wrapper">
+        <div class="navbar-header">
+          <ul class="nav navbar-nav flex-row">
+            <li class="nav-item mobile-menu d-md-none mr-auto">
+              <a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"
+                ><i class="ft-menu font-large-1"></i
+              ></a>
+            </li>
+            <li class="nav-item">
+              <a class="navbar-brand" href="#"
+                ><img
+                  class="brand-logo"
+                  alt="logo"
+                  src="./assets/images/logo.png"
+                />
+
+                <h3 class="brand-text">Temporary Mail</h3>
+              </a>
+            </li>
+            <li class="nav-item d-md-none">
+              <a
+                class="nav-link open-navbar-container"
+                data-toggle="collapse"
+                data-target="#navbar-mobile"
+                >
+                
+                <span class="material-icons">
+                  more_vert
+                  </span>
+            
+            </a>
+            </li>
+          </ul>
+        </div>
+        <div class="navbar-container content">
+          <div class="collapse navbar-collapse" id="navbar-mobile">
+            <ul class="nav navbar-nav mr-auto float-left">
+              <li class="nav-item d-none d-md-block">
+                <a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"
+                  ><i class="ft-menu"> </i
+                ></a>
+              </li>
+              <li
+              class="dropdown nav-item mega-dropdown"
+              style="display: flex; align-items: center; color: #fff"
+            >
+              <a class="nav-link email-address" style="display: flex">
+                <span
+                  style="margin-right: 6px; font-size: 18px"
+                  class="material-icons"
+                >
+                  mail
+                </span>
+                <span class="genarated-address"> nzwqmsz@frederictonlawyer.com </span>
+              </a>
+
+              <a href="#" class="copy_icon" onclick="copyText()">
+                <span class="material-icons"> copy_all </span>
+              </a>
+            </li>
+            </ul>
+
+            <ul class="nav navbar-nav float-right">
+              <li class="dropdown dropdown-language nav-item">
+                <a
+                  class="dropdown-toggle nav-link"
+                  id="dropdown-flag"
+                  href="#"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  ><i class="flag-icon flag-icon-gb"></i><span>English</span
+                  ><span class="selected-language"></span
+                ></a>
+                <div class="dropdown-menu" aria-labelledby="dropdown-flag">
+                  <a class="dropdown-item" href="#"
+                    ><i class="flag-icon flag-icon-gb"></i> English</a
+                  ><a class="dropdown-item" href="#"
+                    ><i class="flag-icon flag-icon-fr"></i> French</a
+                  ><a class="dropdown-item" href="#"
+                    ><i class="flag-icon flag-icon-cn"></i> Chinese</a
+                  ><a class="dropdown-item" href="#"
+                    ><i class="flag-icon flag-icon-de"></i> German</a
+                  >
+                </div>
+              </li>
+
+              <li class="dropdown dropdown-user nav-item">
+                <a
+                  class="dropdown-toggle fix-toggle-mobile nav-link dropdown-user-link"
+                  href="#"
+                  data-toggle="dropdown"
+                  ><span class="avatar avatar-online"
+                    ><img
+                      src="./assets/images/avatar/small-avatar.png"
+                      alt="avatar" /><i></i></span
+                  ><span class="user-name">John Doe</span></a
+                >
+                <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="#"
+                    ><i class="ft-user"></i> Edit Profile</a
+                  ><a class="dropdown-item" href="#"
+                    ><i class="ft-mail"></i> My Inbox</a
+                  ><a class="dropdown-item" href="#"
+                    ><i class="ft-check-square"></i> Task</a
+                  ><a class="dropdown-item" href="#"
+                    ><i class="ft-message-square"></i> Chats</a
+                  >
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#"
+                    ><i class="ft-power"></i> Logout</a
+                  >
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+
+    <div
+      class="main-menu menu-fixed menu-dark menu-accordion menu-shadow bg-gradient-x-grey-blue"
+      data-scroll-to-active="true"
+    >
+      <div class="main-menu-content">
+        <ul
+          class="navigation navigation-main"
+          id="main-menu-navigation"
+          data-menu="menu-navigation"
+        >
+          <li class="nav-item">
+            <a href="index.html"
+              ><i class="icon-home"></i
+              ><span class="menu-title" data-i18n="nav.dash.main"
+                >Dashboard</span
+              ></a
+            >
+            <ul class="menu-content">
+              <li class="active">
+                <a
+                  class="menu-item"
+                  href="dashboard-ecommerce.html"
+                  data-i18n="nav.dash.ecommerce"
+                  style="display: flex; align-items: center"
+                >
+                  <span
+                    style="margin-right: 10px; font-size: 16px"
+                    class="material-icons"
+                  >
+                    inbox
+                  </span>
+                  Inbox</a
+                >
+              </li>
+              <li class="active">
+                <a
+                  class="menu-item"
+                  href="dashboard-ecommerce.html"
+                  data-i18n="nav.dash.ecommerce"
+                >
+                  <i style="" class="icon-refresh spinner"></i>
+                  Refresh</a
+                >
+              </li>
+            </ul>
+          </li>
+
+          <li class="navigation-header">
+            <span data-i18n="nav.category.layouts">Content</span
+            ><i
+              class="ft-more-horizontal ft-minus"
+              data-toggle="tooltip"
+              data-placement="right"
+              data-original-title="Layouts"
+            ></i>
+          </li>
+
+          <li class="nav-item">
+            <a href="#"
+              ><i class="icon-layers"></i
+              ><span class="menu-title" data-i18n="nav.page_layouts.main"
+                >API</span
+              ></a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="#"
+              ><i class="icon-question"></i
+              ><span class="menu-title" data-i18n="nav.page_layouts.main"
+                >FAQ</span
+              ></a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="#"
+              ><i class="icon-lock-open"></i
+              ><span class="menu-title" data-i18n="nav.page_layouts.main"
+                >Privacy</span
+              ></a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="#"
+              ><i class="icon-feed"></i
+              ><span class="menu-title" data-i18n="nav.page_layouts.main"
+                >Feedback</span
+              ></a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="#"
+              ><i class="icon-map"></i
+              ><span class="menu-title" data-i18n="nav.page_layouts.main"
+                >Contact</span
+              ></a
+            >
+          </li>
+
+          <li class="navigation-header">
+            <span data-i18n="nav.category.support">Support</span
+            ><i
+              class="ft-more-horizontal ft-minus"
+              data-toggle="tooltip"
+              data-placement="right"
+              data-original-title="Support"
+            ></i>
+          </li>
+          <li class="nav-item">
+            <a href="http://support.pixinvent.com/"
+              ><i class="icon-support"></i
+              ><span
+                class="menu-title"
+                data-i18n="nav.support_raise_support.main"
+                >Raise Support</span
+              ></a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="#"
+              ><i class="icon-notebook"></i
+              ><span
+                class="menu-title"
+                data-i18n="nav.support_documentation.main"
+                >Documentation</span
+              ></a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="app-content content">
+      <div class="content-wrapper">
+        <!--============================-->
+        <!--=         Email Body       =-->
+        <!--============================-->
+        <section class="email-body">
+          <div class="action-content">
+            <h3 style="font-weight: bold;">Email Subject</h3>
+            <div class="button-group">
+              <button class="css-button-neumorphic">
+                <span class="material-icons" style="vertical-align: middle; color: #a1a1aa;">
+                  chevron_left
+                  </span>
+                  <span>Back</span>
+              </button>
+              <button class="css-button-neumorphic">
+
+                <span class="material-icons" style="vertical-align: middle; color: #a1a1aa; ">
+                  file_download
+                  </span>
+
+                  <span>Download</span>
+              </button>
+              <button class="css-button-neumorphic">
+
+                <span class="material-icons" style="vertical-align: middle; color: #a1a1aa;">
+                  source
+                  </span>
+
+                  <span>Source</span>
+              </button>
+              
+              <button class="css-button-neumorphic">
+
+                <span class="material-icons" style="vertical-align: middle; color: #a1a1aa;">
+                  print
+                  </span>
+
+                  <span>Print</span>
+              </button>
+              
+              <button class="css-button-neumorphic">
+
+                <span class="material-icons" style="vertical-align: middle; color: #a1a1aa;">
+                  delete
+                  </span>
+
+                  <span>Delete</span>
+              </button>
+            </div>
+          </div>
+          
+          <section class="email-body-card">
+            <div class="email-content">
+              <div class="email-content-upper-part">
+                <div class="email-content-upper-left">
+                  <!-- img -->
+                  <img
+                  class="user-image"
+                    src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3Adc%3D%22http%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%22%20xmlns%3Acc%3D%22http%3A%2F%2Fcreativecommons.org%2Fns%23%22%20xmlns%3Ardf%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%22%20xmlns%3Asvg%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Cmetadata%3E%3Crdf%3ARDF%3E%3Ccc%3AWork%3E%3Cdc%3Aformat%3Eimage%2Fsvg%2Bxml%3C%2Fdc%3Aformat%3E%3Cdc%3Atype%20rdf%3Aresource%3D%22http%3A%2F%2Fpurl.org%2Fdc%2Fdcmitype%2FStillImage%22%2F%3E%3Cdc%3Atitle%3EInitials%3C%2Fdc%3Atitle%3E%3Cdc%3Acreator%3E%3Ccc%3AAgent%3E%3Cdc%3Atitle%3EFlorian%20K%C3%B6rner%3C%2Fdc%3Atitle%3E%3C%2Fcc%3AAgent%3E%3C%2Fdc%3Acreator%3E%3Cdc%3Asource%3Ehttps%3A%2F%2Fgithub.com%2Fdicebear%2Fdicebear%3C%2Fdc%3Asource%3E%3Ccc%3Alicense%20rdf%3Aresource%3D%22https%3A%2F%2Fcreativecommons.org%2Fpublicdomain%2Fzero%2F1.0%2F%22%2F%3E%3C%2Fcc%3AWork%3E%3Ccc%3ALicense%20rdf%3Aabout%3D%22https%3A%2F%2Fcreativecommons.org%2Fpublicdomain%2Fzero%2F1.0%2F%22%3E%3Ccc%3Apermits%20rdf%3Aresource%3D%22https%3A%2F%2Fcreativecommons.org%2Fns%23Reproduction%22%2F%3E%3Ccc%3Apermits%20rdf%3Aresource%3D%22https%3A%2F%2Fcreativecommons.org%2Fns%23Distribution%22%2F%3E%3Ccc%3Apermits%20rdf%3Aresource%3D%22https%3A%2F%2Fcreativecommons.org%2Fns%23DerivativeWorks%22%2F%3E%3C%2Fcc%3ALicense%3E%3C%2Frdf%3ARDF%3E%3C%2Fmetadata%3E%3Cmask%20id%3D%22avatarsRadiusMask%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20rx%3D%220%22%20ry%3D%220%22%20x%3D%220%22%20y%3D%220%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fmask%3E%3Cg%20mask%3D%22url(%23avatarsRadiusMask)%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23E53935%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20style%3D%22%20font-family%3A%20Arial%2Csans-serif%3B%20font-size%3A%200.5px%22%20fill%3D%22%23FFF%22%20text-anchor%3D%22middle%22%20dy%3D%220.178%22%3EAS%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"
+                    alt=""
+                  />
+
+                  <!-- sender name and email -->
+                  <div style="margin-top: -6px;">
+                    <span class="user-email-name">John Smith</span>
+                    <span style="font-size: 16px;">john@gmail.com</span>
+                    <p class="user-email" style="display: flex; align-items: center; color: #6b7280;">
+                      <span
+                      style="font-size: 18px; margin-right: 5px; color: #6b7280;"
+                      class="material-icons"
+                    >
+                      mail
+                    </span>
+                    <span style="font-size: 16px;">
+                      nzwqmsz@frederictonlawyer.com
+                    </span>
+                      </p>
+                  </div>
+                </div>
+
+                <div class="email-content-upper-right">
+                  <p style="font-size: 15px;">Jan 9, 2022, 6:34 PM (2 days ago)</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="email-body-content">
+              
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. A, officiis sit repellat eum quod doloremque dolores veniam excepturi nobis ullam officia illo autem, beatae velit architecto aut tempore voluptas incidunt nihil blanditiis odio dolore ducimus. Natus fugit aliquam quod amet, cupiditate sed repellat. Ipsum, placeat veritatis, aut et sit corrupti, expedita molestiae dolorem provident officiis error nemo itaque reiciendis cumque? Nulla dolorum reprehenderit tenetur accusamus? Quasi hic itaque quo, ea, quisquam tempore officiis, omnis tempora possimus optio sapiente assumenda repudiandae eum odio numquam. Fugiat, porro, dolore quae molestiae possimus repudiandae maiores velit recusandae laboriosam nesciunt reiciendis atque veniam temporibus nihil doloremque eius unde ipsa id eaque maxime, corrupti ducimus earum. Atque voluptate ducimus sunt temporibus culpa veritatis natus, eaque in rerum, veniam ipsam error eos mollitia autem similique! Tempora voluptate cum architecto ratione optio similique rem placeat aspernatur, consequuntur suscipit rerum asperiores quisquam. Explicabo unde tempora sit eum distinctio voluptas numquam officia voluptate culpa veritatis odio vero soluta dolor animi, magnam iure hic fugiat aperiam minima dolorem error, assumenda, ab nobis? Incidunt culpa sequi suscipit, repellat dolores esse praesentium. Itaque repellat iste fugiat, dignissimos tempore odit facilis quisquam exercitationem molestiae placeat laudantium illum laborum quas, soluta, omnis consequatur aspernatur error.
+              
+            </div>
+          </section>
+
+         
+
+        </section>
+        <!-- /.joblists -->
+      </div>
+    </div>
+
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+
+    <!-- BEGIN VENDOR JS-->
+
+    <script src="./assets/vendors/js/vendors.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.2.2/sweetalert2.min.js"></script>
+
+    <!-- END PAGE VENDOR JS-->
+
+    <!-- BEGIN GLOBAL JS-->
+    <script src="./assets/js/core/app-menu.js"></script>
+    <script src="./assets/js/core/app.js"></script>
+    <!-- END GLOBAL JS-->
+  </body>
+</html>

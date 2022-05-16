@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+.index {
+    display: block;
+}
+
+
+.contact, .blog {
+    display: none;
+}
+
+.nav ul {
+    display: flex;
+    list-style-type: none;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.sidebar {
+    padding: 40px;
+}
+
+
+.sidebar h3 {
+    font-size: 40px;
+}
+
+button {
+    font-size: 30px;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.main {
+    background: ghostwhite;
+    padding: 80px;
+}
+
+.main section {
+    padding: 30px;
+}
+
+.important {
+    font-style: italic;
+    font-weight: bold;
+    font-size: 100px;
+}

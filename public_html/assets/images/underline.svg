@@ -1,0 +1,8 @@
+<svg width="400" height="35" xmlns="http://www.w3.org/2000/svg">
+    <path id="pathItem"
+        d="M5 5 Q 15 1 70 5"
+        stroke="#fff"
+        fill="transparent"
+        stroke-width="5"
+        stroke-linecap="round"/>
+</svg>
